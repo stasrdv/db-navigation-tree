@@ -1,0 +1,27 @@
+.navigation-tree {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_element {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+  }
+}
+.material-icons {
+  padding-right: 5px;
+  cursor: pointer;
+  &.expanded {
+    visibility: visible;
+  }
+  &.collapsed {
+    visibility: hidden;
+  }
+}
+
+li {
+  padding-left: 40px;
+}
+.app-spinner {
+  position: absolute;
+}
