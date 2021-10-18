@@ -1,6 +1,11 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from "@angular/core";
 import { Subject, Observable } from "rxjs";
-import { takeUntil, tap } from "rxjs/operators";
+import { takeUntil } from "rxjs/operators";
 import { DataService } from "src/app/navigator-tree/services/data.service";
 import { DbEntity } from "../../enums/navigation-tree.enum";
 import { NavItem } from "../../models/nodeItem";
@@ -40,8 +45,8 @@ export class NavigationTreeComponent implements OnInit, OnDestroy {
     if (this.navItems.some((element) => element.parent === id)) {
       return;
     }
-    this.loadItems(id).subscribe((res) => {
-      this.navItems = [...this.navItems, ...res];
+    this.loadItems(id).subscribe((items) => {
+      this.navItems = [...this.navItems, ...items];
       this.loading = false;
     });
   }
@@ -53,7 +58,7 @@ export class NavigationTreeComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.cleanupSubject$));
   }
 
-  trackByFn(index, item) {
+  trackByFn(index, item): number {
     return item.id;
   }
 

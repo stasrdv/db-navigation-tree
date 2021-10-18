@@ -1,15 +1,13 @@
 <div class="navigation-tree">
     <ul>
         <ng-template #levelList let-id>
-            <li *ngFor="let item of navItems | filterById: id;trackBy: trackByFn">
+            <li *ngFor="let item of navItems | filterById: id; trackBy: trackByFn">
                 <div class="navigation-tree_element" (click)="onToggle(item)">
                     <span class="material-icons" [ngClass]="openNodes.has(item.id) ? 'expanded' : 'collapsed'">
                         expand_more
                     </span>
-                    <span class=" material-icons">
-                        <span>
-                            {{ item.entityType | entityToIcon }}
-                        </span>
+                    <span class="material-icons">
+                        {{ item.entityType | entityToIcon }}
                     </span>
                     <p>{{ item.title }}</p>
                 </div>
