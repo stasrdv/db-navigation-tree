@@ -25,6 +25,9 @@ export class NavigationTreeComponent implements OnInit, OnDestroy {
   itemsSubject: BehaviorSubject<NavItem[]> = new BehaviorSubject<NavItem[]>([]);
   navItems: Observable<NavItem[]> = this.itemsSubject.asObservable();
   openNodes = new Set();
+  openNodesSubject: BehaviorSubject<any> = new BehaviorSubject<any>({
+    openNodes: this.openNodes,
+  });
   private cleanupSubject$ = new Subject<void>();
 
   constructor(
@@ -50,6 +53,7 @@ export class NavigationTreeComponent implements OnInit, OnDestroy {
       this.openNodes.add(item.id);
       this.updateList(item.id);
     }
+    this.openNodesSubject.next({ openNodes: this.openNodes });
   }
 
   private isValidPermission(item: NavItem): boolean {

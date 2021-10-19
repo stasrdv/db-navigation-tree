@@ -4,7 +4,8 @@
             <li *ngFor="let item of (navItems | async) | filterByParentId: id;">
                 <div class="navigation-tree_element" (click)="onToggle(item)"
                     [ngClass]="{'not-allowed':item.permission != activeUserRole}">
-                    <span class="material-icons" [ngClass]="openNodes.has(item.id) ? 'expanded' : 'collapsed'">
+                    <span class="material-icons"
+                        [ngClass]="((openNodesSubject | async) | hasOpenNodes:item) ? 'expanded' : 'collapsed'">
                         expand_more
                     </span>
                     <span class="material-icons">
@@ -12,7 +13,7 @@
                     </span>
                     <p><b>{{ item.title }}</b></p>
                 </div>
-                <ng-container *ngIf="openNodes.has(item.id)">
+                <ng-container *ngIf="(openNodesSubject | async) | hasOpenNodes:item">
                     <ul>
                         <ng-container *ngTemplateOutlet="levelList; context: { $implicit: item.id }"></ng-container>
                     </ul>

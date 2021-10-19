@@ -4,9 +4,10 @@ import { NavigationTreeComponent } from "./components/navigation-tree/navigation
 import { EntityToIconPipe } from "./pipes/entity-to-icon.pipe";
 import { FilterByIdPipe } from "./pipes/filter-by-parentId.pipe";
 import { SharedModule } from "../shared/shared.module";
+import { HasOpenNodesPipe } from './pipes/has-open-nodes.pipe';
 
 @NgModule({
-  declarations: [NavigationTreeComponent, EntityToIconPipe, FilterByIdPipe],
+  declarations: [NavigationTreeComponent, EntityToIconPipe, FilterByIdPipe, HasOpenNodesPipe],
   imports: [CommonModule, SharedModule],
   exports: [NavigationTreeComponent, EntityToIconPipe, FilterByIdPipe],
 })
