@@ -14,12 +14,14 @@ import { NavItem } from "../../models/nodeItem";
   selector: "navigation-tree",
   templateUrl: "./navigation-tree.component.html",
   styleUrls: ["./navigation-tree.component.scss"],
+  host: { class: "navigation-tree" },
 })
 export class NavigationTreeComponent implements OnInit, OnDestroy {
   loading = false;
   navItems: NavItem[] = [];
   openNodes = new Set();
   private cleanupSubject$ = new Subject<void>();
+  counter = 0;
 
   constructor(private dataService: DataService) {}
 
