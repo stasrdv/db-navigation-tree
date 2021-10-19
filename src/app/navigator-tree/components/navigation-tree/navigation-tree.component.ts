@@ -65,13 +65,11 @@ export class NavigationTreeComponent implements OnInit, OnDestroy {
       return;
     }
     this.loading = true;
-    this.loadNewItems(id)
-      .pipe(takeUntil(this.cleanupSubject$))
-      .subscribe((items) => {
-        const newData = [...this.itemsSubject.value, ...items];
-        this.itemsSubject.next(newData);
-        this.loading = false;
-      });
+    this.loadNewItems(id).subscribe((items) => {
+      const newData = [...this.itemsSubject.value, ...items];
+      this.itemsSubject.next(newData);
+      this.loading = false;
+    });
   }
 
   private loadNewItems(id: number = 0): Observable<NavItem[]> {
