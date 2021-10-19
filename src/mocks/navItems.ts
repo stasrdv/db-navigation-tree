@@ -10,6 +10,13 @@ export const flatData = [
     permission: UserRole.Admin,
   },
   {
+    title: "Connection Devops Only",
+    id: 450,
+    entityType: DbEntity.Connection,
+    parent: 0,
+    permission: UserRole.DEVOPS,
+  },
+  {
     title: "Connection Prod",
     id: 2,
     entityType: DbEntity.Connection,
@@ -23,15 +30,9 @@ export const flatData = [
     parent: 0,
     permission: UserRole.Admin,
   },
+
   {
-    title: "Connection Devops Only",
-    id: 450,
-    entityType: DbEntity.Connection,
-    parent: 0,
-    permission: UserRole.DEVOPS,
-  },
-  {
-    title: "DataBase STG",
+    title: "DB STG",
     id: 201,
     parent: 200,
     entityType: DbEntity.DataBase,
@@ -108,9 +109,9 @@ export const flatData = [
     permission: UserRole.Admin,
   },
   {
-    title: "_id",
-    id: 121,
-    parent: 70,
+    title: "dateTime",
+    id: 343,
+    parent: 205,
     entityType: DbEntity.Column,
     permission: UserRole.Admin,
   },
@@ -122,7 +123,7 @@ export const flatData = [
     permission: UserRole.Admin,
   },
   {
-    title: "DataBase Test",
+    title: "DB Test",
     id: 22,
     parent: 1,
     entityType: DbEntity.DataBase,
@@ -143,7 +144,7 @@ export const flatData = [
     permission: UserRole.Admin,
   },
   {
-    title: "DataBase 2.2",
+    title: "DB 2.2",
     id: 33,
     parent: 2,
     entityType: DbEntity.DataBase,

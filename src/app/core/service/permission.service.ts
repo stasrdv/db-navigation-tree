@@ -8,7 +8,7 @@ import { UserRole } from "../enums/roles.enum";
 export class PermissionService {
   constructor() {}
 
-  // Simulate API CALL
+  // Simulate simple API CALL to get user role
   getUserPermissions(userId: number) {
     return UserRole.Admin;
   }
