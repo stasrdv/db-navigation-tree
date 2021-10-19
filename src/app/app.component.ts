@@ -1,8 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import { NavItem } from "./navigator-tree/models/nodeItem";
-import { DataService } from "./navigator-tree/services/data.service";
-import { map, tap, shareReplay } from "rxjs/operators";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-root",

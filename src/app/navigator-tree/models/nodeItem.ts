@@ -1,3 +1,4 @@
+import { UserRole } from "src/app/core/enums/roles.enum";
 import { DbEntity } from "../enums/navigation-tree.enum";
 
 export interface NavItem {
@@ -5,4 +6,5 @@ export interface NavItem {
   id: number;
   parent?: string | number;
   entityType?: DbEntity;
+  permission?: UserRole;
 }

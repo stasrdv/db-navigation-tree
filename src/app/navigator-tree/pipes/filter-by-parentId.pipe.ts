@@ -6,6 +6,7 @@ import { NavItem } from "../models/nodeItem";
 })
 export class FilterByIdPipe implements PipeTransform {
   transform(list: NavItem[], parentId): NavItem[] {
+    if (!list) return [];
     return list.filter((item) => {
       return item.parent === parentId;
     });
