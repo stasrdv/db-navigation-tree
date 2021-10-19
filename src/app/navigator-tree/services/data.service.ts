@@ -14,10 +14,11 @@ export class DataService {
   }
 
   getItemByParentId(id: string | number): Observable<NavItem[]> {
-    // Simulate calling API on demand, get data by samll chunks
     const childNodes = flatData.filter((item) => {
       return item.parent === id;
     });
+
+    // Simulate calling API on demand, get data by samll chunks
     const customDelay = childNodes.length * DEFAULT_DELAY;
     return of<NavItem[]>(childNodes).pipe(delay(customDelay));
   }
